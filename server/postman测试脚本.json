@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "5e913256-b7c0-4487-8c34-fdda8a035db5",
+		"name": "springboot 通用后台",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "oa登录",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "oauth_eQuake_secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "oauth_eQuake",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic b2F1dGhfZVF1YWtlOm9hdXRoX2VRdWFrZV9zZWNyZXQ=",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "username",
+							"value": "user1",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "client_id",
+							"value": "oauth_eQuake",
+							"type": "text",
+							"description": ""
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"type": "text",
+							"description": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUSer",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer f73fb0eb-6fff-40bb-be9a-1be143986781"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missions列表",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer bbd5c8a7-dd3c-4e35-b909-6769b5536918"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/mission?id=8adb9755-eaf6-4c1e-af5a-be0e579f11f6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mission"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "8adb9755-eaf6-4c1e-af5a-be0e579f11f6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user 列表",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer bbd5c8a7-dd3c-4e35-b909-6769b5536918"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "missions 添加",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer bbd5c8a7-dd3c-4e35-b909-6769b5536918"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\":\"新建任务1\",\n\t\"userId\":\"8adb9755-eaf6-4c1e-af5a-be0e579f11f6\",\n\t\"quakeLevel\":\"毁天灭地\",\n\t\"responseLevel\":\"坐以待毙\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/mission",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mission"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
